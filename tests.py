@@ -25,7 +25,7 @@ def plot_coverage_comparison(num_points, bip_coverage, heuristic_coverage):
     plt.xlabel("Number of Points")
     plt.ylabel("Coverage")
 
-    plt.legend(['BIP', 'Heuristic'], loc='best')
+    plt.legend(['BIP', 'Greedy'], loc='best')
     plt.grid()
     plt.show()
 
@@ -38,7 +38,7 @@ def plot_runtime_comparison(num_points, bip_runtime, heuristic_runtime):
     plt.xlabel("Number of Points")
     plt.ylabel("Runtime (seconds)")
 
-    plt.legend(['BIP', 'Heuristic'], loc='best')
+    plt.legend(['BIP', 'Greedy'], loc='best')
     plt.grid()
     plt.show()
 
@@ -90,7 +90,7 @@ def run_all_tests():
     bip_runtimes = []  # seconds
     heuristic_runtimes = []  # seconds
 
-    for i in range(12):
+    for i in range(24):
         filepath = "tests/test_" + str(i) + ".json"
 
         with open(filepath) as f:
@@ -127,11 +127,13 @@ def run_all_tests():
         #visualize(locations, BIP_solution, sensor_radius)
         #visualize(locations, heuristic_solution, sensor_radius)
 
+    """
     print(len_locs)
     print(bip_coverages)
     print(heuristic_coverages)
     print(bip_runtimes)
     print(heuristic_runtimes)
+    """
 
     plot_coverage_comparison(len_locs, bip_coverages, heuristic_coverages)
     plot_runtime_comparison(len_locs, bip_runtimes, heuristic_runtimes)
